@@ -5,6 +5,9 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title misocial 
         link(rel="stylesheet", href="css/styles.css")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     body 
         header 
             .menu.wraper 
@@ -24,16 +27,18 @@ html(lang="en")
                         li
                             a.link(href="#") pricing 
                     a.button(href="#") get started
+                .burger 
             .content 
-                h3.headerline social marketing and analitics 
-                h2.headerbig pricing table 
+                h3.headerline.dash-word  social marketing and analitics 
+                h1.headerbig pricing table 
                 p.smalltext Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum voluptatum nesciunt hic soluta omnis reprehenderit!
                 a(href="#").arrow 
+
         main
-                h3.headerline misocial 
+                h3.dash-word.headerline misocial 
                 h2.headerbig select a plan 
                 p.smalltext Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum voluptatum nesciunt hic soluta omnis reprehenderit!
-                .conteiner 
+                .conteiner.wraper 
                     .option
                         img(src="img/standard.png", alt="standard")
                         h4 standard 
@@ -44,20 +49,20 @@ html(lang="en")
                         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores praesentium ex vitae cupiditate corporis temporibus cumque provident nobis, repellat libero?
                         a.button.button-op(href="#") select plan
                     .option
-                        img(src="img/standard.png", alt="standard")
+                        img(src="img/radio.png", alt="radio")
                         h4 standard 
                         .price 
                             sup $
-                            span 0
+                            span 29
                             sub /month
                         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores praesentium ex vitae cupiditate corporis temporibus cumque provident nobis, repellat libero?
                         a.button.button-op(href="#") select plan
                     .option
-                        img(src="img/standard.png", alt="standard")
+                        img(src="img/personal.png", alt="personal")
                         h4 standard 
                         .price 
                             sup $
-                            span 0
+                            span 49
                             sub /month
                         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores praesentium ex vitae cupiditate corporis temporibus cumque provident nobis, repellat libero?
                         a.button.button-op(href="#") select plan
@@ -70,9 +75,9 @@ html(lang="en")
                     a.button.button-map(href="#") explore features
             .whitefield
                 .menu 
-                    .logocontainer 
+                    a(href="index.html").logo
                         img(src="img/globe.png", alt="")
-                        span misocial 
+                        span misocial  
                     .links 
                         ul.linksreference 
                             li
@@ -93,4 +98,4 @@ html(lang="en")
                         a.social(href="#").twitter
                         a.social(href="#").google
                         a.social(href="#").instagram  
-                    
+        script(src="js/scripts.js") 

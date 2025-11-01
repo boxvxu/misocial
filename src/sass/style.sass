@@ -1,7 +1,9 @@
 *
     margin: 0
     box-sizing: border-box
-
+@mixin media($size)
+    @media screen and (min-width:#{$size}px)
+        @content
 body,html
     border-radius: 0 
 
@@ -13,33 +15,70 @@ body,html
 a
     text-decoration: none
 .menu
-    display: flex
     justify-content: space-between
+    display: flex
     .logo
         display: flex
         column-gap: 15px
         align-items: center
         span
             font-size: 30px
-            letter-spacing: 6px
+            letter-spacing: 2px
             font-weight: 700
             font-family: "Maven Pro"
             text-transform: uppercase
+            +media(1024)
+                letter-spacing: 6px
+    .burger
+        width: 30px
+        height: 30px
+        background-image: url("../img/menu.png")
+        z-index: 2
+        background-size: contain
+        +media(568)
+            display: none
+    .active
+        background-image: url("../img/close.png")
     .links
-        display: flex
         align-items: center
         column-gap: 60px
+        display: none
+        +media(568)
+            display: flex
     ul
         display: flex
         list-style: none
-        column-gap: 60px
+        column-gap: 30px
+        flex-wrap: wrap
+        +media(1024)
+            column-gap: 60px
+    
         a
             text-transform: uppercase
             font-size: 16px
             font-weight: 500
             font-family: "Maven Pro"
+    .show
+        display: block
+        position: fixed
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100vh
+        background-color: blue
+        flex-direction: column
+        z-index: 1
+        padding: 50px 10px
+        box-sizing: border-box
+        ul
+            flex-direction: column
+            li
+                padding: 15px 0
+        .button
+            width: max-content
 .button
     font-size: 12px
+    white-space: nowrap
     letter-spacing: 1px
     text-transform: uppercase
     font-weight: 500
@@ -50,29 +89,249 @@ a
     border-radius: 30px
     box-sizing: border-box
 header
-    background-color: #73adc7
-    background-image: url(../img/glasses.png)
-    background-position: center
+    background-color: #306ed994
     padding: 45px 0px 50px
     color: white
+    position: relative
+    +media(568)
+        padding: 10px 0px 50px  
     a
         color: white
+    h1
+       padding: 40px 0 22px
+    h3
+       margin: auto
+       margin-top: 30px
+       +media(568)
+         margin-top: 180px
+       &::before, &::after
+        
+            background-color: white 
+    p
+       padding-bottom: 80px
+       +media(568)
+        padding-bottom: 180px
+
+    .arrow
+       width: 65px
+       height: 65px
+       background-color: white
+       border-radius: 50%
+       display: block
+       margin: 0 auto  
+       background-image: url(../img/icons/arrow.svg) 
+       background-repeat: no-repeat
+       background-position: center
+    &::after
+       background-position: center
+       position: absolute
+       background-image: url(../img/glasses.png)
+       width: 100%
+       height: 100%
+       top: 0
+       left: 0
+       background-color: #6047d7
+       content: ""
+       z-index: -1
+
 h3
-    font-size: 14px
+    font-size: 12px
     text-transform: uppercase
     font-family: "Maven Pro"
     font-weight: 700
-    letter-spacing: 1px
     text-align: center
-h2
-    font-size: 86px
+    +media(568)
+        letter-spacing: 1px
+        font-size: 14px
+    
+h1,h2
+    font-size: 43px
     font-family: "Maven Pro"
     font-weight: 500
     letter-spacing: -3px
     text-align: center
+    +media(568)
+        font-size: 86px
 p
     font-size: 16px
     font-family: "Maven Pro"
     font-weight: 400
     text-align: center
     line-height: 28px
+
+main 
+    h3
+        margin: 120px auto 25px 
+        &::before, &::after
+        
+            background-color: black
+    h2 
+        letter-spacing: -2px 
+        font-size: 30px
+        +media(568) 
+            font-size: 60px
+    p 
+        padding: 20px 0 50px
+        +media(568)
+            padding: 40px 0 100px
+
+    .conteiner  
+        display: flex 
+        flex-wrap: wrap
+        gap: 50px
+        .option
+            padding: 60px
+            border: 1px solid #6e45e2
+            border-radius: 25px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            &:hover
+                filter: drop-shadow( 0 0 46px black)
+                background-color: white
+            img
+                height: 95px
+                display: block
+                width: 120pxb
+            h4
+                font-size: 14px
+                letter-spacing: 1px
+                line-height: 32px
+                text-transform: uppercase
+                color: #9fa4af
+                font-weight: 700
+                font-family: "Maven Pro"
+                padding: 53px 0 30px
+            .price
+                position: relative
+                font-size: 60px
+                letter-spacing: -2px
+                line-height: 72px
+                color: #4f4f6f
+                font-weight: 500
+                font-family: "Maven Pro"
+                text-align: center
+                sub
+                   font-size: 16px
+                   position: absolute
+                   right: 0
+                   top: 18px
+                   transform: translateX(100%)
+                sup
+                    font-size: 16px   
+                    position: absolute
+                    left: 0
+                    bottom: 18px
+                    transform: translateX(-100%)
+            p 
+                padding: 48px 0 50px 
+            .button
+                border-color: #4f4f6f
+                color: white
+                background-color: #4f4f6f
+.map
+    margin-top: 120px
+    padding: 178px 0 186px
+    background-color: #306ed994
+    position: relative
+    marging-bottom: 50px
+    color: white
+    &::after
+       background-position: center
+       position: absolute
+       background-image: url(../img/map.png)
+       width: 100%
+       height: 100%
+       top: 0
+       left: 0
+       background-color: #6047d7
+       content: ""
+       z-index: -1
+    h3
+        margin-bottom: 25px
+    h2
+        margin-bottom: 17px
+    .conteiner
+        display: flex
+        justify-content: center
+        gap: 20px
+        flex-wrap: wrap
+    .button
+        text-align: center
+        transition: all 0.5s ease
+        min-width: 190px
+        background-color: white
+        color: grey
+        &:hover
+            background-color: #6047d7
+            color: white
+            border-color: #6047d7
+.whitefield
+    padding-top: 50px
+    .menu
+        justify-content: center
+        row-gap: 30px
+        flex-wrap: nowrap
+        +media(568)
+            justify-content: space-between
+            padding-bottom: 25px
+
+
+        span
+            font-size: 30px
+            letter-spacing: 6px
+            font-weight: 700
+            font-family: "Maven Pro"
+            text-transform: uppercase
+
+        .button
+            border-color: #6047d7
+            white-space: nowrap
+            color: #756edc
+        a
+            color: #756edc
+            
+.bottom
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    +media(568)
+        justify-content: space-between
+    .conteiner
+        display: flex
+        justify-content: space-between
+        gap: 20px
+        a
+           display: block
+           width: 16px
+           height: 16px
+           background-size: contain
+           background-repeat: no-repeat
+           background-position: center
+        .facebook
+           background-image: url(../img/icons/fb.svg) 
+        .twitter  
+           background-image: url(../img/icons/tw.svg)
+        .google   
+           background-image: url(../img/icons/email.svg)
+        .instagram   
+           background-image: url(../img/icons/inst.svg)   
+.dash-word
+    width: max-content
+    position: relative
+    padding: 0 10px
+    &::before,  &::after 
+        content: ""
+        margin: 0 0.3em
+        position: absolute
+        width: 30px 
+        height: 2px
+        //background-color: black
+        top: 50%
+    &::before
+        left: 0
+        transform: translate(-100%, -50%)
+    &::after
+        right: 0
+        transform: translate(100%, -50%)
