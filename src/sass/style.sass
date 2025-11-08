@@ -54,7 +54,7 @@ a
             column-gap: 60px
     
         a
-            text-transform: uppercase
+            //text-transform: uppercase
             font-size: 16px
             font-weight: 500
             font-family: "Maven Pro"
@@ -133,7 +133,8 @@ header
        background-color: #6047d7
        content: ""
        z-index: -1
-
+       +media(1440)
+            background-size: cover
 h3
     font-size: 12px
     text-transform: uppercase
@@ -158,6 +159,8 @@ p
     font-weight: 400
     text-align: center
     line-height: 28px
+    max-width: 500px
+    margin: auto
 
 main 
     h3
@@ -187,6 +190,8 @@ main
             flex-direction: column
             justify-content: center
             align-items: center
+            +media(728)
+               max-width: 30%
             &:hover
                 filter: drop-shadow( 0 0 46px black)
                 background-color: white
