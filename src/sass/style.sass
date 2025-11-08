@@ -181,7 +181,10 @@ main
     .conteiner  
         display: flex 
         flex-wrap: wrap
-        gap: 50px
+        +media(1920)
+           gap: 50px
+        +media(728)
+           justify-content: space-around
         .option
             padding: 60px
             border: 1px solid #6e45e2
@@ -191,7 +194,8 @@ main
             justify-content: center
             align-items: center
             +media(728)
-               max-width: 30%
+               max-width: 440px
+               width: 30%
             &:hover
                 filter: drop-shadow( 0 0 46px black)
                 background-color: white
